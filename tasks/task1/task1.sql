@@ -1,6 +1,7 @@
 USE example_db;
 
 -- создадим таблицу t для наглядности
+DROP TABLE IF EXISTS t;
 CREATE TABLE t
 (
     t_id            INT PRIMARY KEY AUTO_INCREMENT,
@@ -25,7 +26,7 @@ VALUES (NOW(), 1, 'продажа', -15),
        (NOW(), 2, 'возврат', 10),
        ('2000-01-02', 1, 'возврат', 1);
 
-EXPLAIN SELECT t_product_id                                              AS товар,
+SELECT t_product_id                                              AS товар,
        ABS(SUM(IF(YEAR(t_date) IN (2013, 2014), t_quantity, 0))) AS продано_2013_2014,
        ABS(SUM(IF(YEAR(t_date) = 2013, t_quantity, 0)))          AS продано_2013,
        abs(SUM(IF(YEAR(t_date) = 2014, t_quantity, 0)))          AS продано_2014
