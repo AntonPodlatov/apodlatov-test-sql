@@ -11,6 +11,12 @@ CREATE TABLE t
     t_quantity      INT                         NOT NULL
 );
 
+-- CREATE INDEX idx_date ON t(t_date);
+-- CREATE INDEX idx_product_id ON t(t_product_id);
+
+-- Здесь нужны индексы или составной индекс. я решил сделать составной
+CREATE INDEX idx_product_date ON t(t_product_id, t_date);
+
 INSERT INTO t (t_date, t_product_id, t_movement_type, t_quantity)
 VALUES (NOW(), 1, 'продажа', -15),
        (NOW(), 1, 'продажа', -15),
