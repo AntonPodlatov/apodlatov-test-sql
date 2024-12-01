@@ -29,7 +29,7 @@ VALUES (NOW(), 1, 'продажа', -15),
        (NOW(), 2, 'возврат', 10),
        ('2000-01-02', 1, 'возврат', 1);
 
-
+-- Без оконных функций
 SELECT t_product_id                                   AS товар,
        SUM(t_quantity)                                AS остаток_текущий,
        SUM(IF(t_date <= '2021-01-01', t_quantity, 0)) AS остаток_2021_01_01
@@ -38,6 +38,7 @@ WHERE t_quantity > 0
   AND t_date <= CURRENT_DATE
 GROUP BY t_product_id;
 
+-- С оконными функциями
 SELECT DISTINCT t_product_id                                                                    AS товар,
                 SUM(t_quantity) OVER (PARTITION BY t_product_id)                                AS остаток_текущий,
                 SUM(IF(t_date <= '2021-01-01', t_quantity, 0)) OVER (PARTITION BY t_product_id) AS остаток_2021_01_01
