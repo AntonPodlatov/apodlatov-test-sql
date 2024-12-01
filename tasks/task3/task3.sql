@@ -1,6 +1,7 @@
 -- Для наглядности создадим таблицы
 
 -- товары (предполодим что есть таблица с товарами)
+DROP TABLE IF EXISTS products;
 CREATE TABLE products
 (
     p_id   INT PRIMARY KEY AUTO_INCREMENT,
@@ -8,6 +9,7 @@ CREATE TABLE products
 );
 
 -- поступление
+DROP TABLE IF EXISTS receipts;
 CREATE TABLE receipts
 (
     r_id         INT PRIMARY KEY AUTO_INCREMENT,
@@ -17,6 +19,7 @@ CREATE TABLE receipts
 );
 
 -- продажи
+DROP TABLE IF EXISTS sales;
 CREATE TABLE sales
 (
     s_id         INT PRIMARY KEY AUTO_INCREMENT,
@@ -26,6 +29,7 @@ CREATE TABLE sales
 );
 
 -- текущие остатки
+DROP TABLE IF EXISTS actual_balance;
 CREATE TABLE actual_balance
 (
     ab_id         INT PRIMARY KEY AUTO_INCREMENT,
