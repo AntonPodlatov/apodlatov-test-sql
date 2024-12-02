@@ -95,6 +95,7 @@ FROM
 
 -- Запрос от таблицы с товарами с джоинами через остатки и реультаты подзапросов (входной параметр ДАТА_С - ДАТА_ПО:
 -- (Доп. не было в требованиях)
+/*
 SELECT p.p_name AS товар, пришло, продано, SUM(ab_quantity) as остаток
 FROM products p
          LEFT JOIN actual_balance ab ON p.p_id = ab.ab_product_id
@@ -103,3 +104,4 @@ FROM products p
          LEFT JOIN (SELECT s_product_id, SUM(s_quantity) AS продано FROM sales WHERE s_date BETWEEN :ДАТА_С AND :ДАТА_ПО GROUP BY s_product_id) s
                    ON p.p_id = s.s_product_id
 GROUP BY p.p_name;
+ */

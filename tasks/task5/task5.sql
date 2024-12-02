@@ -89,14 +89,17 @@ FROM products p
 -- допишу еще пару запросов
 
 -- запрос выводящий сгруппированные свойства товара
+/*
 SELECT p.p_name, GROUP_CONCAT(DISTINCT ov.option_value ORDER BY ov.option_value) AS _values
 FROM products p
          LEFT JOIN products_options_values pov ON p.p_id = pov.p_id
          LEFT JOIN options o ON pov.option_id = o.o_id
          LEFT JOIN options_values ov ON pov.value_id = ov.ov_id
 GROUP BY p.p_id;
+ */
 
 -- запрос выводящий сгруппированные размеры и цвета товара
+/*
 SELECT p.p_name,
        GROUP_CONCAT(CASE WHEN o.option_name = 'Размер' THEN ov.option_value END) AS sizes,
        GROUP_CONCAT(CASE WHEN o.option_name = 'Цвет' THEN ov.option_value END) AS colors
@@ -105,3 +108,4 @@ FROM products p
          LEFT JOIN options o ON pov.option_id = o.o_id
          LEFT JOIN options_values ov ON pov.value_id = ov.ov_id
 GROUP BY p.p_id;
+ */
