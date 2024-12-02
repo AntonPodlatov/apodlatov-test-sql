@@ -42,7 +42,7 @@ CREATE TABLE products_options_values
 );
 
 -- чтобы джоины работали лучше, можно добавить индекс
-CREATE INDEX idx_option_value ON products_options_values (option_id, value_id);
+CREATE INDEX idx_option_value ON products_options_values (option_id, value_id, p_id);
 
 INSERT INTO products (p_name, p_article_number, p_code)
 VALUES ('Футболка', 'FT-001', 'CODE123'),
