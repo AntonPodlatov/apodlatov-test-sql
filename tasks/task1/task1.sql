@@ -29,7 +29,7 @@ VALUES (NOW(), 1, 'продажа', -15),
 SELECT t_product_id                                              AS товар,
        ABS(SUM(IF(YEAR(t_date) IN (2013, 2014), t_quantity, 0))) AS продано_2013_2014,
        ABS(SUM(IF(YEAR(t_date) = 2013, t_quantity, 0)))          AS продано_2013,
-       abs(SUM(IF(YEAR(t_date) = 2014, t_quantity, 0)))          AS продано_2014
+       ABS(SUM(IF(YEAR(t_date) = 2014, t_quantity, 0)))          AS продано_2014
 FROM t
 WHERE t_quantity < 0
   AND t_date BETWEEN '2013-01-01' AND '2014-12-31'
